@@ -11,27 +11,41 @@
         <h1>Book Library</h1>
         <div>Store any books here.</div>
     </header>
-    <form action="" method="get">
-        <div class="book-title">
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title">
+    <main>
+        <div class="button">
+            <button>New Book</button>
         </div>
-        <div class="book-author">
-            <label for="author">Author</label>
-            <input type="text" id="author" name="author">
+        <form action="" method="get" class="form">
+            <div class="book-title">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div class="book-author">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author">
+            </div>
+            <div class="book-num-pages">
+                <label for="pages">Number of pages</label>
+                <input type="number" id="pages" name="pages">
+            </div>
+            <div class="book-read">
+                <div>Have you already read it?</div>
+                <input type="radio" id="yes" name="read" value="true">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="read" value="false">
+                <label for="no">No</label>
+            </div>
+            <div class="button-submit">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div class="books">
+            <div class="title">Title</div>
+            <div class="author">Author</div>
+            <div class="num-pages">Pages</div>
+            <div class="read">Did you read it?</div>
         </div>
-        <div class="book-numOfPages">
-            <label for="pages">Number of pages</label>
-            <input type="number" id="pages" name="pages">
-        </div>
-        <div class="book-read">
-            <div>Have you already read it?</div>
-            <input type="radio" id="yes" name="read" value="true">
-            <label for="yes">Yes</label>
-            <input type="radio" id="no" name="read" value="false">
-            <label for="no">No</label>
-        </div>
-    </form>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
