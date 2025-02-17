@@ -8,24 +8,18 @@ function Book(title, author, numPages, read) {
 }
 
 function addBookToLibrary() {
-  let title = prompt("Book's title: ", );
-  let author = prompt("Book's author: ", );
-  let numPages = prompt("Book's number of pages: ", );
-  let read;
-  do {
-    read = prompt("Have you already read it?: ", );
-  } while (read !== 'yes' && read !== 'no' && read !== false);
-  
-  read = checkReadVal(read);
-  function checkReadVal(read) {
-    if (read == 'yes') {
-        return true
-    } else if (read == 'no') {
-        return false
-    } else return read;
-  }
-
-  myLibrary.push(new Book(title, author, numPages, read))
+    let title = document.querySelector('#title');
+    let author = document.querySelector('#author');
+    let numPages = document.querySelector('#pages');
+    let read = document.querySelector('input[type="radio"]');
+    
+    myLibrary.push(new Book(title.value, author.value, numPages.value, read.value))
+    console.log(myLibrary);
 }
 
-//addBookToLibrary()
+const submit = document.querySelector('button[type="submit"]');
+
+submit.addEventListener("click", (e) => {
+    e.preventDefault()
+    addBookToLibrary()
+});
