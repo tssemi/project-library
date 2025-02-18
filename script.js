@@ -17,13 +17,13 @@ function addBookToLibrary() {
     console.log(myLibrary);
 }
 
-const submit = document.querySelector('button[type="submit"]');
+const form = document.querySelector('.form');
 const newBook = document.querySelector('.newBook');
 const books = document.querySelectorAll('.form div input');
 
-submit.addEventListener("click", (e) => {
-    e.preventDefault()
-    addBookToLibrary()
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    addBookToLibrary();
 });
 
 newBook.addEventListener("click", (e) => {
