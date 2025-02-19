@@ -3,9 +3,8 @@
     margin: 0;
 }
 
-.books {
+.books-library {
     display: grid;
-    grid-template-rows: auto;
+    grid-template-rows:repeat(auto, minmax(150px, 1fr));
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-flow: column;
 }
