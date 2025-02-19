@@ -15,6 +15,16 @@ function addBookToLibrary() {
 
     myLibrary.push(new Book(title.value, author.value, numPages.value, read.value))
     console.log(myLibrary);
+
+    const library = document.querySelector(".books-library");
+
+    myLibrary.forEach(arrayELe => {
+        for (const objEle in arrayELe) {
+            const newDiv = document.createElement("div");
+            newDiv.textContent = arrayELe[objEle];
+            library.appendChild(newDiv);    
+        }
+    });
 }
 
 const form = document.querySelector('.form');
@@ -33,3 +43,4 @@ newBook.addEventListener("click", (e) => {
         } else e.value = '';
     });
 })
+
