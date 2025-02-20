@@ -14,17 +14,29 @@ function addBookToLibrary() {
     let read = document.querySelector('input[type="radio"]:checked');
 
     myLibrary.push(new Book(title.value, author.value, numPages.value, read.value))
+    console.log('before ');
     console.log(myLibrary);
 
     const library = document.querySelector(".books-library");
 
-    myLibrary.forEach(arrayELe => {
-        for (const objEle in arrayELe) {
-            const newDiv = document.createElement("div");
-            newDiv.textContent = arrayELe[objEle];
-            library.appendChild(newDiv);    
-        }
-    });
+    for (const ele in myLibrary[myLibrary.length - 1]) {
+        console.log(myLibrary[ele])
+        const newDiv = document.createElement("div");
+        newDiv.textContent = myLibrary[myLibrary.length - 1][ele];
+        library.appendChild(newDiv);
+    }
+
+    const readBtn = document.createElement("button");
+    readBtn.textContent = 'Read it';
+    library.appendChild(readBtn);
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = 'DELETE';
+    library.appendChild(deleteBtn);
+
+    Object.defineProperty(myLibrary[myLibrary.length - 1], 'index', {value:`${myLibrary.length - 1}`})
+    console.log('AFTER ');
+    console.log(myLibrary);
 }
 
 const form = document.querySelector('.form');
