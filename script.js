@@ -23,7 +23,7 @@ function addBookToLibrary() {
 
     const library = document.querySelector(".books-library");
     const book = document.createElement("div");
-    book.className = "book";
+    book.className = `book-${myLibrary.length}`;
 
     for (const ele in myLibrary[myLibrary.length - 1]) {
         if (myLibrary[myLibrary.length - 1].hasOwnProperty(ele)) {
@@ -45,15 +45,14 @@ function addBookToLibrary() {
 
     library.appendChild(book);
 
-    deleteBtn.addEventListener("click", () => {
-        book.remove()
+    deleteBtn.addEventListener("click", (e) => {
+        e.target.parentElement.remove();
     })
 
-    console.log(Object.getPrototypeOf(myLibrary[myLibrary.length - 1]))
-
-    readBtn.addEventListener("click", () => {
-        myLibrary[myLibrary.length - 1].changeRead();
-        console.log(myLibrary[myLibrary.length - 1]);
+    readBtn.addEventListener("click", (e) => {
+        let n = e.target.parentElement.getAttribute('class').slice(-1);
+        myLibrary[n].changeRead();
+        
     })
 }
 
