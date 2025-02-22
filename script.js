@@ -7,6 +7,10 @@ function Book(title, author, numPages, read) {
     this.read = read;
 }
 
+Book.prototype.changeRead = function() {
+    this.read = "true";
+};
+
 function addBookToLibrary() {
     let title = document.querySelector('#title');
     let author = document.querySelector('#author');
@@ -14,18 +18,20 @@ function addBookToLibrary() {
     let read = document.querySelector('input[type="radio"]:checked');
 
     myLibrary.push(new Book(title.value, author.value, numPages.value, read.value))
-    console.log(myLibrary);
 
-    Object.defineProperty(myLibrary[myLibrary.length - 1], 'index', {value:`${myLibrary.length - 1}`});
+    //Object.defineProperty(myLibrary[myLibrary.length - 1], 'index', {value:`${myLibrary.length - 1}`});
 
     const library = document.querySelector(".books-library");
     const book = document.createElement("div");
     book.className = "book";
 
     for (const ele in myLibrary[myLibrary.length - 1]) {
+        if (myLibrary[myLibrary.length - 1].hasOwnProperty(ele)) {
+        console.log(myLibrary[myLibrary.length - 1][ele])
         const newDiv = document.createElement("div");
         newDiv.textContent = myLibrary[myLibrary.length - 1][ele];
         book.appendChild(newDiv);
+        }
     }
 
     const readBtn = document.createElement("button");
@@ -39,8 +45,15 @@ function addBookToLibrary() {
 
     library.appendChild(book);
 
-    deleteBtn.addEventListener("click", (e) => {
+    deleteBtn.addEventListener("click", () => {
         book.remove()
+    })
+
+    console.log(Object.getPrototypeOf(myLibrary[myLibrary.length - 1]))
+
+    readBtn.addEventListener("click", () => {
+        myLibrary[myLibrary.length - 1].changeRead();
+        console.log(myLibrary[myLibrary.length - 1]);
     })
 }
 
