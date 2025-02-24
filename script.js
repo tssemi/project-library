@@ -19,8 +19,6 @@ function addBookToLibrary() {
 
     myLibrary.push(new Book(title.value, author.value, numPages.value, read.value))
 
-    //Object.defineProperty(myLibrary[myLibrary.length - 1], 'index', {value:`${myLibrary.length - 1}`});
-
     const library = document.querySelector(".books-library");
     const book = document.createElement("div");
     book.className = `book-${myLibrary.length}`;
@@ -51,8 +49,10 @@ function addBookToLibrary() {
 
     readBtn.addEventListener("click", (e) => {
         let n = e.target.parentElement.getAttribute('class').slice(-1);
-        myLibrary[n].changeRead();
-        
+        myLibrary[n - 1].changeRead();
+        document.querySelector(`
+            .books-library .book-${n} div:nth-last-child(3)`)
+            .textContent = 'true';
     })
 }
 
