@@ -3,6 +3,16 @@
     margin: 0;
 }
 
+header {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin: 1rem;
+}
+
+main {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .books-library {
     display: grid;
     grid-template-rows:repeat(auto, minmax(150px, 1fr));
