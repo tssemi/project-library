@@ -56,9 +56,9 @@ function addBookToLibrary() {
     })
 }
 
-const form = document.querySelector('.form');
+const form = document.querySelector('.library-form');
 const newBook = document.querySelector('.newBook');
-const books = document.querySelectorAll('.form div input');
+const books = document.querySelectorAll('.library-form div input');
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
